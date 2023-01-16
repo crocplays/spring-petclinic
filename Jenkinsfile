@@ -9,5 +9,11 @@ pipeline {
                 sh 'mvn -X clean install'
             }
         }
+        stage('Docker Build'){
+            agent any
+            steps{
+                sh 'docker build -t chenadi/spring-petclinic:latest .'
+            }
+        }
     }
 }
